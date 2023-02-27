@@ -1,0 +1,29 @@
+<h1>ToDo List</h1>
+
+<div [ngClass]="'container'">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Task</th>
+        <th scope="col"> Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let T of todoList; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ T.task }}</td> 
+        <td>
+         
+        <div *ngIf="T.complete== true" ><s>{{ T.task }} </s></div>
+        <div *ngIf="this.T.complete== false"><button (click)="completeTask()">Complete</button></div>
+       
+      
+        </tr>
+    </tbody>
+
+
+  <div>
+ <input type="text" [(ngModel)]="newTask.task"/>
+      <button (click)="addTask()">Add</button>
+  </div>
